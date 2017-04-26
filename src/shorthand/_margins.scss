@@ -1,0 +1,44 @@
+@each $spacing in $spacings {
+  $i: index($spacings, $spacing) - 1;
+
+  .m\:#{$i} {
+    margin: $spacing;
+  }
+
+  @each $key, $value in $breakpoints {
+    @media #{$value} {
+      .m\@#{$key}\:#{$i} {
+        margin: $spacing;
+      }
+    }
+  }
+}
+
+.mh\:auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// modifiers
+@each $key, $value in $position-modifiers {
+  @each $spacing in $spacings {
+    .m#{$key}\:#{index($spacings, $spacing) - 1} {
+      margin-#{$value}: $spacing;
+    }
+  }
+}
+
+// negative
+@each $spacing in $spacings {
+  @if index($spacings, $spacing) > 1 {
+    .m\:#{index($spacings, $spacing) - 1} {
+      margin: -$spacing;
+    }
+  }
+
+  @each $key, $value in $position-modifiers {
+    .m#{$key}\:#{index($spacings, $spacing) - 1} {
+      margin-#{$value}: $spacing;
+    }
+  }
+}

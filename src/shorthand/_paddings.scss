@@ -1,0 +1,26 @@
+@each $spacing in $spacings {
+  $i: index($spacings, $spacing) - 1;
+
+  .p\:#{$i} {
+    padding: $spacing;
+  }
+
+  .ph\:#{$i} { padding-left: $spacing; padding-right: $spacing; }
+  .pv\:#{$i} { padding-top: $spacing; padding-bottom: $spacing; }
+
+  @each $key, $value in $breakpoints {
+    @media #{$value} {
+      .p\@#{$key}\:#{$i} {
+        padding: $spacing !important;
+      }
+    }
+  }
+}
+
+@each $key, $value in $position-modifiers {
+  @each $spacing in $spacings {
+    .p#{$key}\:#{index($spacings, $spacing) - 1} {
+      padding-#{$value}: $spacing;
+    }
+  }
+}

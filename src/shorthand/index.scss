@@ -1,0 +1,25 @@
+// @import "~normalize.css";
+@import "~open-color/open-color.scss";
+@import "_variables";
+@import "_colors";
+@import "_fonts";
+@import "_border";
+@import "_border-radius";
+@import "_line-heights";
+@import "_margins";
+@import "_paddings";
+@import "_sizing";
+
+* {
+  box-sizing: border-box;
+}
+
+.-cf {
+   *zoom: 1;
+   &:before,
+   &:after { content: " "; display: table; }
+   &:after { clear: both; }
+}
+
+.f\:l { float: left; }
+.f\:r { float: right; }

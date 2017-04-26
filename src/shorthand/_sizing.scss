@@ -1,0 +1,16 @@
+@each $value in $sizes {
+  .w\:#{$value}\% {
+    width: percentage($value / 100);
+  }
+}
+
+@each $name, $width in $breakpoints-widths {
+  .w\:#{$name} {
+    width: $width;
+  }
+}
+// @for $i from 1 through 12 {
+//   .w\:#{$i}\/12 {
+//     width: calc(100% / 12 * #{$i});
+//   }
+// }

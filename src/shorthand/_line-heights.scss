@@ -1,0 +1,5 @@
+@each $value in $line-heights {
+  .lh\:#{index($line-heights, $value)} {
+    line-height: $value;
+  }
+}

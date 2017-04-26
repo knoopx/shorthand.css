@@ -1,0 +1,20 @@
+.ff\:s { font-family: $font-family-serif; }
+.ff\:ss { font-family: $font-family-sans-serif; }
+.ff\:m { font-family: $font-family-monospace; }
+
+.fs\:normal { font-style: normal; }
+.fs\:italic { font-style: italic; }
+
+// font-size
+@each $value in $font-sizes {
+  .fs\:#{index($font-sizes, $value)} {
+    font-size: $value;
+  }
+}
+
+// font-weight
+@each $value in $font-weights {
+  .fw\:#{index($font-weights, $value) - 1} {
+    font-weight: $value;
+  }
+}

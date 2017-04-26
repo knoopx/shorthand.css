@@ -1,0 +1,25 @@
+@mixin color-shorthands($color, $index, $value) {
+  .c\:#{$color}-#{$index} {
+    color: $value;
+  }
+
+  .bc\:#{$color}-#{$index} {
+    background-color: $value;
+  }
+
+  .Bc\:#{$color}-#{$index} {
+    border-color: $value;
+  }
+}
+
+@each $list, $color in $oc-color-list {
+  @each $index, $value in $list {
+    @include color-shorthands($color, $index, $value)
+  }
+}
+
+@each $color, $value in (black: $oc-black, white: $oc-white) {
+  @for $alpha from 0 through 9 {
+    @include color-shorthands($color, $alpha, transparentize($value, $alpha / 10))
+  }
+}

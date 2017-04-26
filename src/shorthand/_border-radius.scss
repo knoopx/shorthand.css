@@ -1,0 +1,8 @@
+@each $value in $border-radiuses {
+  .br\:#{index($border-radiuses, $value) - 1} {
+    border-radius: $value;
+  }
+}
+
+.br\:100\% { border-radius: 100%; }
+.br\:x { border-radius: 9999px; }

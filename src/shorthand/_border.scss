@@ -1,0 +1,6 @@
+@each $value in $border-widths {
+  .Bw\:#{index($border-widths, $value) - 1} {
+    border-width: $value;
+    border-style: solid;
+  }
+}
